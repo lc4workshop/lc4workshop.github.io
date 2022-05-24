@@ -14,7 +14,7 @@ body {
 
 
 h1, h2, h3 {
-	margin: 0;
+	margin: 100px;
 	padding: 0;
 }
 	h3.style1{
@@ -255,7 +255,7 @@ hr {
 	#logo 
 	{
 		width: 800px;
-		height: 100px;
+		height: 300px;
 		margin: 0 auto;
 		padding: 2em 0em;
 		/*text-transform: uppercase;*/
