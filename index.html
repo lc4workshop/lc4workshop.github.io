@@ -3,31 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LC4 2024 - Low Resource Cross Domain, Cross Lingual, Cross Modal Content Analysis</title>
+    <title>LC4 2025 – Fourth Workshop on Low Resource Cross‑Domain, Cross‑Lingual, and Cross‑Modal Content Analysis (Agentic Applications)</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         :root {
-            --primary: #6366f1;
-            --primary-dark: #4f46e5;
-            --secondary: #0f172a;
-            --accent: #ec4899;
-            --accent-light: #fdf2f8;
-            --text-primary: #0f172a;
-            --text-secondary: #64748b;
-            --text-muted: #94a3b8;
-            --bg-light: #f8fafc;
-            --bg-card: #ffffff;
-            --border: #e2e8f0;
-            --border-light: #f1f5f9;
-            --success: #10b981;
-            --warning: #f59e0b;
-            --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --primary: #6366f1; --primary-dark: #4f46e5; --secondary: #0f172a; --accent: #ec4899;
+            --accent-light: #fdf2f8; --text-primary: #0f172a; --text-secondary: #64748b; --text-muted: #94a3b8;
+            --bg-light: #f8fafc; --bg-card: #ffffff; --border: #e2e8f0; --border-light: #f1f5f9;
+            --success: #10b981; --warning: #f59e0b; --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             --gradient-accent: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
             --gradient-hero: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
             --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
@@ -35,531 +19,76 @@
             --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
             --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
         }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            line-height: 1.6;
-            color: var(--text-primary);
-            background: #fff;
-            overflow-x: hidden;
-        }
-
-        /* Hero Section */
-        .hero {
-            background: var(--gradient-hero);
-            padding: 120px 0 100px;
-            position: relative;
-            overflow: hidden;
-        }
-
+        body { font-family: 'Inter', sans-serif; line-height: 1.6; color: var(--text-primary); background: #fff; overflow-x: hidden; }
+        .hero { background: var(--gradient-hero); padding: 120px 0 100px; position: relative; overflow: hidden; }
         .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
+            content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
             background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="%23ffffff" stroke-width="1" opacity="0.1"/></pattern></defs><rect width="100%" height="100%" fill="url(%23grid)"/></svg>');
             opacity: 0.3;
         }
-
         .hero::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
-                        radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3) 0%, transparent 50%);
+            content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(circle at 20% 80%, rgba(120,119,198,0.3) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 20%, rgba(255,119,198,0.3) 0%, transparent 50%);
         }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-            position: relative;
-            z-index: 1;
-        }
-
-        .hero-content {
-            text-align: center;
-            color: white;
-            position: relative;
-            z-index: 2;
-        }
-
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; position: relative; z-index: 1; }
+        .hero-content { text-align: center; color: white; position: relative; z-index: 2; }
         .hero h1 {
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            font-weight: 800;
-            margin-bottom: 1.5rem;
-            line-height: 1.1;
-            background: linear-gradient(45deg, #ffffff, #e0e7ff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 800; margin-bottom: 1.5rem; line-height: 1.1;
+            background: linear-gradient(45deg, #ffffff, #e0e7ff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
         }
-
-        .hero .subtitle {
-            font-size: clamp(1.1rem, 2.5vw, 1.5rem);
-            font-weight: 400;
-            margin-bottom: 1rem;
-            opacity: 0.95;
-            max-width: 900px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
+        .hero .subtitle { font-size: clamp(1.1rem, 2.5vw, 1.5rem); font-weight: 400; margin-bottom: 1rem; opacity: 0.95; max-width: 900px; margin-left: auto; margin-right: auto; }
         .hero .date-location {
-            font-size: 1.25rem;
-            font-weight: 600;
-            background: rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(20px);
-            padding: 16px 32px;
-            border-radius: 50px;
-            display: inline-block;
-            margin-top: 2rem;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            box-shadow: var(--shadow-lg);
+            font-size: 1.1rem; font-weight: 600; background: rgba(255,255,255,0.15); backdrop-filter: blur(20px);
+            padding: 16px 24px; border-radius: 50px; display: inline-block; margin-top: 1.25rem; border: 1px solid rgba(255,255,255,0.3); box-shadow: var(--shadow-lg);
         }
-
-        /* Navigation */
-        .nav {
-            position: sticky;
-            top: 0;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid var(--border);
-            z-index: 1000;
-            transition: all 0.3s ease;
-        }
-
-        .nav-container {
-            display: flex;
-            justify-content: center;
-            padding: 1rem 0;
-        }
-
-        .nav ul {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-            margin: 0;
-            padding: 0;
-            flex-wrap: wrap;
-        }
-
+        .nav { position: sticky; top: 0; background: rgba(255,255,255,0.95); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); z-index: 1000; transition: all 0.3s ease; }
+        .nav-container { display: flex; justify-content: center; padding: 1rem 0; }
+        .nav ul { display: flex; list-style: none; gap: 2rem; margin: 0; padding: 0; flex-wrap: wrap; }
         .nav a {
-            text-decoration: none;
-            color: var(--text-primary);
-            font-weight: 500;
-            padding: 0.75rem 1.5rem;
-            border-radius: 12px;
-            transition: all 0.3s ease;
-            position: relative;
-            background: var(--bg-light);
-            border: 1px solid var(--border-light);
+            text-decoration: none; color: var(--text-primary); font-weight: 500; padding: 0.75rem 1.5rem; border-radius: 12px;
+            transition: all 0.3s ease; position: relative; background: var(--bg-light); border: 1px solid var(--border-light);
         }
-
-        .nav a:hover {
-            color: var(--primary);
-            background: rgba(99, 102, 241, 0.1);
-            border-color: rgba(99, 102, 241, 0.2);
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-md);
-        }
-
-        .nav a.active {
-            color: white;
-            background: var(--primary);
-            border-color: var(--primary);
-            box-shadow: var(--shadow-md);
-        }
-
-        /* Main Content */
-        .main-content {
-            padding: 80px 0;
-            background: linear-gradient(135deg, var(--bg-light) 0%, #ffffff 100%);
-        }
-
-        .content-grid {
-            display: grid;
-            grid-template-columns: 1fr 350px;
-            gap: 4rem;
-        }
-
-        .main-column {
-            background: var(--bg-card);
-            border-radius: 20px;
-            padding: 3rem;
-            box-shadow: var(--shadow-lg);
-            border: 1px solid var(--border);
-            position: relative;
-        }
-
-        .sidebar {
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
-        }
-
-        .sidebar-card {
-            background: var(--bg-card);
-            border-radius: 16px;
-            padding: 2rem;
-            box-shadow: var(--shadow-md);
-            border: 1px solid var(--border);
-            transition: all 0.3s ease;
-        }
-
-        .sidebar-card:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-xl);
-            border-color: var(--primary);
-        }
-
-        .section {
-            margin-bottom: 4rem;
-        }
-
-        .section:last-child {
-            margin-bottom: 0;
-        }
-
-        .section-title {
-            font-size: 2.25rem;
-            font-weight: 700;
-            margin-bottom: 2rem;
-            color: var(--text-primary);
-            position: relative;
-            padding-bottom: 1rem;
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 80px;
-            height: 4px;
-            background: var(--gradient-primary);
-            border-radius: 2px;
-        }
-
-        .news-section {
-            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
-            border: 1px solid var(--warning);
-            border-radius: 16px;
-            padding: 2rem;
-            margin-bottom: 3rem;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .news-section::before {
-            content: '📢';
-            font-size: 2rem;
-            position: absolute;
-            top: 1.5rem;
-            right: 2rem;
-            opacity: 0.7;
-        }
-
-        .research-questions {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-
-        .question-card {
-            background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
-            border: 1px solid #93c5fd;
-            border-radius: 12px;
-            padding: 1.5rem;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .question-card::before {
-            content: '🤔';
-            font-size: 1.5rem;
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-        }
-
-        .question-card:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-lg);
-            border-color: var(--primary);
-        }
-
-        .dates-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1rem;
-            margin-top: 2rem;
-        }
-
-        .date-item {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 1.5rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .date-item::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-            width: 4px;
-            height: 100%;
-            background: var(--gradient-primary);
-        }
-
-        .date-item:hover {
-            border-color: var(--primary);
-            box-shadow: var(--shadow-md);
-            transform: translateX(4px);
-        }
-
-        .date-text {
-            font-weight: 500;
-            flex: 1;
-        }
-
-        .date-value {
-            font-weight: 600;
-            color: var(--primary);
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.9rem;
-        }
-
-        .organizers-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-
-        .organizer-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: 2rem;
-            text-align: center;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .organizer-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: var(--gradient-primary);
-        }
-
-        .organizer-card:hover {
-            transform: translateY(-6px);
-            box-shadow: var(--shadow-xl);
-            border-color: var(--primary);
-        }
-
-        .organizer-name {
-            font-weight: 600;
-            color: var(--primary);
-            margin-bottom: 0.5rem;
-            font-size: 1.1rem;
-        }
-
-        .organizer-affiliation {
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-            line-height: 1.5;
-        }
-
-        .contact-section {
-            background: var(--gradient-primary);
-            color: white;
-            padding: 2.5rem;
-            border-radius: 16px;
-            margin-top: 2rem;
-        }
-
-        .contact-section h3 {
-            margin-bottom: 1.5rem;
-            font-size: 1.5rem;
-            font-weight: 600;
-        }
-
-        .contact-item {
-            margin-bottom: 0.75rem;
-            padding: 0.75rem;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 8px;
-            backdrop-filter: blur(10px);
-        }
-
-        .contact-item a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s ease;
-        }
-
-        .contact-item a:hover {
-            text-decoration: underline;
-            opacity: 0.8;
-        }
-
-        .twitter-section {
-            background: linear-gradient(135deg, #e0f2fe 0%, #b3e5fc 100%);
-            border: 1px solid #29b6f6;
-            border-radius: 16px;
-            padding: 1.5rem;
-            text-align: center;
-        }
-
-        .twitter-section h3 {
-            color: #1976d2;
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
-        }
-
-        .twitter-section::before {
-            content: '🐦';
-            font-size: 1.5rem;
-        }
-
-        /* Responsive Design */
+        .nav a:hover { color: var(--primary); background: rgba(99,102,241,0.1); border-color: rgba(99,102,241,0.2); transform: translateY(-2px); box-shadow: var(--shadow-md); }
+        .nav a.active { color: white; background: var(--primary); border-color: var(--primary); box-shadow: var(--shadow-md); }
+        .main-content { padding: 80px 0; background: linear-gradient(135deg, var(--bg-light) 0%, #ffffff 100%); }
+        .content-grid { display: grid; grid-template-columns: 1fr 350px; gap: 4rem; }
+        .main-column { background: var(--bg-card); border-radius: 20px; padding: 3rem; box-shadow: var(--shadow-lg); border: 1px solid var(--border); position: relative; }
+        .sidebar { display: flex; flex-direction: column; gap: 2rem; }
+        .sidebar-card { background: var(--bg-card); border-radius: 16px; padding: 2rem; box-shadow: var(--shadow-md); border: 1px solid var(--border); transition: all 0.3s ease; }
+        .sidebar-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-xl); border-color: var(--primary); }
+        .section { margin-bottom: 4rem; }
+        .section:last-child { margin-bottom: 0; }
+        .section-title { font-size: 2.25rem; font-weight: 700; margin-bottom: 2rem; color: var(--text-primary); position: relative; padding-bottom: 1rem; }
+        .section-title::after { content: ''; position: absolute; bottom: 0; left: 0; width: 80px; height: 4px; background: var(--gradient-primary); border-radius: 2px; }
+        .news-section { background: linear-gradient(135deg, #e0f2fe 0%, #b3e5fc 100%); border: 1px solid #29b6f6; border-radius: 16px; padding: 1.5rem; margin-bottom: 2rem; position: relative; overflow: hidden; }
+        .research-questions { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1rem; margin-top: 1rem; }
+        .question-card { background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%); border: 1px solid #93c5fd; border-radius: 12px; padding: 1rem; transition: all 0.3s ease; position: relative; }
+        .question-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); border-color: var(--primary); }
+        .ul-clean { margin-left: 1.25rem; }
+        .badge { display: inline-block; padding: 0.25rem 0.75rem; background: var(--accent); color: white; border-radius: 20px; font-size: 0.8rem; font-weight: 500; margin-left: 0.5rem; }
+        .dates-grid { display: grid; grid-template-columns: 1fr; gap: 0.75rem; margin-top: 1rem; }
+        .date-item { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 1rem; display: flex; justify-content: space-between; align-items: center; position: relative; overflow: hidden; }
+        .date-item::before { content: ''; position: absolute; left: 0; top: 0; width: 4px; height: 100%; background: var(--gradient-primary); }
+        .date-text { font-weight: 500; flex: 1; }
+        .date-value { font-weight: 600; color: var(--primary); font-family: 'JetBrains Mono', monospace; font-size: 0.9rem; }
+        .organizers-grid { display: grid; grid-template-columns: 1fr; gap: 1rem; margin-top: 1rem; }
+        .organizer-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 1.25rem; text-align: center; transition: all 0.3s ease; position: relative; overflow: hidden; }
+        .organizer-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: var(--gradient-primary); }
+        .organizer-name { font-weight: 600; color: var(--primary); margin-bottom: 0.35rem; font-size: 1.05rem; }
+        .organizer-affiliation { color: var(--text-secondary); font-size: 0.9rem; line-height: 1.5; }
+        .contact-section { background: var(--gradient-primary); color: white; padding: 1.5rem; border-radius: 16px; margin-top: 1rem; }
+        .contact-item { margin-bottom: 0.5rem; padding: 0.5rem; background: rgba(255,255,255,0.1); border-radius: 8px; backdrop-filter: blur(10px); }
+        .contact-item a { color: white; text-decoration: none; font-weight: 500; transition: all 0.3s ease; }
+        .contact-item a:hover { text-decoration: underline; opacity: 0.9; }
         @media (max-width: 768px) {
-            .hero {
-                padding: 80px 0 60px;
-            }
-
-            .content-grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .sidebar {
-                order: -1;
-            }
-
-            .main-column {
-                padding: 2rem;
-            }
-
-            .nav ul {
-                gap: 1rem;
-                justify-content: center;
-            }
-
-            .nav a {
-                padding: 0.5rem 1rem;
-                font-size: 0.9rem;
-            }
-
-            .research-questions {
-                grid-template-columns: 1fr;
-            }
-
-            .dates-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .organizers-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .date-item {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 0.5rem;
-            }
+            .hero { padding: 80px 0 60px; } .content-grid { grid-template-columns: 1fr; gap: 2rem; }
+            .sidebar { order: -1; } .main-column { padding: 2rem; } .nav ul { gap: 1rem; justify-content: center; }
+            .nav a { padding: 0.5rem 1rem; font-size: 0.9rem; } .research-questions { grid-template-columns: 1fr; }
         }
-
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .section {
-            animation: fadeInUp 0.6s ease forwards;
-        }
-
-        .section:nth-child(2) { animation-delay: 0.1s; }
-        .section:nth-child(3) { animation-delay: 0.2s; }
-        .section:nth-child(4) { animation-delay: 0.3s; }
-
-        /* Scroll Behavior */
-        html {
-            scroll-behavior: smooth;
-        }
-
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: var(--bg-light);
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: var(--primary);
-            border-radius: 4px;
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: var(--primary-dark);
-        }
-
-        /* Additional Utility Classes */
-        .highlight-text {
-            background: linear-gradient(120deg, #a8edea 0%, #fed6e3 100%);
-            padding: 0.2rem 0.5rem;
-            border-radius: 6px;
-            font-weight: 500;
-        }
-
-        .badge {
-            display: inline-block;
-            padding: 0.25rem 0.75rem;
-            background: var(--accent);
-            color: white;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 500;
-            margin-left: 0.5rem;
-        }
-
-        .emoji-large {
-            font-size: 1.5rem;
-            margin-right: 0.5rem;
-        }
+        html { scroll-behavior: smooth; }
+        ::-webkit-scrollbar { width: 8px; } ::-webkit-scrollbar-track { background: var(--bg-light); }
+        ::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 4px; } ::-webkit-scrollbar-thumb:hover { background: var(--primary-dark); }
     </style>
 </head>
 <body>
@@ -567,13 +96,13 @@
     <section class="hero">
         <div class="container">
             <div class="hero-content">
-                <h1>LC4 2024</h1>
+                <h1>LC4 2025</h1>
                 <p class="subtitle">
-                    Low Resource Cross Domain, Cross Lingual, Cross Modal Content Analysis<br>
-                    Real World Applications
+                    Fourth Workshop on Low Resource Cross‑Domain, Cross‑Lingual, and Cross‑Modal Content Analysis<br>
+                    <span style="opacity:0.95;">Theme: <strong>Agentic Applications</strong></span>
                 </p>
                 <div class="date-location">
-                    📅 December 4-6, 2024 • 🏛️ VIT Chennai, Tamil Nadu, India • 🌐 Hybrid
+                    📅 2025 (Dec 18-20) • 🏛️ Venue IIIT Kottayam • 🌐 In‑person (remote presentations allowed)
                 </div>
             </div>
         </div>
@@ -585,10 +114,12 @@
             <div class="nav-container">
                 <ul>
                     <li><a href="#home" class="active">🏠 Home</a></li>
-                    <li><a href="http://spelll.org/" target="_blank">📚 SPELLL2024</a></li>
-                    <li><a href="#overview">📄 Call for Papers</a></li>
+                    <li><a href="#overview">📄 Overview</a></li>
+                    <li><a href="#topics">🧩 Topics of Interest</a></li>
+                    <li><a href="#questions">❓ Research Questions</a></li>
                     <li><a href="#dates">📅 Key Dates</a></li>
                     <li><a href="#organizers">👥 Organizers</a></li>
+                    <li><a href="#pc">🧑‍⚖️ Program Committee</a></li>
                     <li><a href="#contact">📧 Contact</a></li>
                 </ul>
             </div>
@@ -599,148 +130,142 @@
     <main class="main-content">
         <div class="container">
             <div class="content-grid">
+                <!-- Main Column -->
                 <div class="main-column">
                     <!-- News Section -->
                     <section class="section" id="home">
                         <div class="news-section">
-                            <h2 style="color: #d97706; margin-bottom: 1rem; font-size: 1.5rem;">📢 Latest Updates</h2>
-                            <p style="font-size: 1.1rem; line-height: 1.6;">
-                                Welcome to the third iteration of the LC4 workshop! Stay tuned for exciting updates about submissions, program details, and registration information.
+                            <h2 style="color:#0f172a; margin-bottom:0.5rem; font-size:1.4rem;">📢 Announcement</h2>
+                            <p style="font-size:1.05rem;">
+                                Welcome to the <strong>fourth</strong> iteration of LC4. This year emphasizes <em>agentic AI systems</em> for low‑resource, cross‑domain, cross‑lingual, and cross‑modal content analysis. 
+                                Invited speakers and final dates will be announced soon. Official site: <a href="https://lc4workshop.github.io/" target="_blank">lc4workshop.github.io</a>.
                             </p>
+                            <p style="margin-top:0.5rem; font-size:0.95rem; color:#334155;">Mode: In‑person workshop with remote presentation option for participants who cannot travel.</p>
                         </div>
                     </section>
 
-                    <!-- Overview Section -->
+                    <!-- Overview -->
                     <section id="overview" class="section">
-                        <h2 class="section-title">🎯 Workshop Overview</h2>
-                        <div style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 2rem;">
-                            <p style="margin-bottom: 1.5rem;">
-                                The third iteration of LC4 workshop puts emphasis on <span class="highlight-text">understanding content variation across domains</span>, developing <span class="highlight-text">cross-lingual approaches</span> to bridge gaps between high and low-resource languages, and exploring <span class="highlight-text">multi-modal interactions</span> for better content quantification.
-                            </p>
-                            <p>
-                                This workshop takes a multi-disciplinary approach, focusing not only on cross-domain, cross-lingual, and cross-modal research, but also motivating their applications in industry and wider society.
-                            </p>
-                        </div>
-                        
-                        <h3 style="font-size: 1.75rem; margin: 2rem 0 1.5rem 0; color: var(--primary);">🔍 Key Research Questions</h3>
+                        <h2 class="section-title">🎯 Overview</h2>
+                        <p style="font-size:1.05rem; line-height:1.8; margin-bottom:1rem;">
+                            LC4 invites work on novel computational methods to detect, classify, and model multimedia content across domains, languages, and modalities—
+                            with a special focus on <strong>agentic content monitoring</strong>, <strong>adaptive reasoning</strong>, and <strong>trust‑aware decision‑making</strong> in supervision‑sparse settings.
+                            We especially welcome contributions that leverage <strong>foundational models</strong> (LLMs and multimodal agents) for robust, interpretable, and socially impactful analysis in low‑resource contexts.
+                        </p>
+                    </section>
+
+                    <!-- Topics -->
+                    <section id="topics" class="section">
+                        <h2 class="section-title">🧩 Topics of Interest</h2>
+                        <ul class="ul-clean" style="font-size:1.02rem; line-height:1.85;">
+                            <li>Multimodal &amp; agentic foundational models for cross‑domain multimedia analysis (sentiment, finance, hate speech, cyberbullying, threats, disaster, education).</li>
+                            <li>LLM pipelines for social media in low‑resource &amp; code‑mixed languages (prompting, chain‑of‑thought, retrieval‑augmentation).</li>
+                            <li>Hybrid NLP–Vision–Speech approaches with LLMs/multimodal agents for low‑resource content detection and analysis.</li>
+                            <li>Handling missing modalities; generative imputation &amp; LLM reasoning for modality recovery.</li>
+                            <li>Corpora, annotation guidelines, and <em>agent‑assisted</em> annotation frameworks for cross‑domain/cross‑lingual/cross‑modal analysis.</li>
+                            <li>Robustness, interpretability, and adaptability evaluations of LLM/agent systems in low‑resource settings.</li>
+                            <li>Bias/fairness studies under cross‑domain low‑resource settings; amplification/mitigation by LLMs &amp; agents.</li>
+                            <li>Design of cross‑domain/cross‑lingual/cross‑modal metrics, incl. hallucination detection and incompleteness identification.</li>
+                            <li>Annotation quality &amp; reliability; agent‑in‑the‑loop methods, inter‑rater calibration with LLMs, bias detection.</li>
+                            <li>Agentic AI frameworks for continuous monitoring and adaptation to evolving domains, genres, and languages.</li>
+                        </ul>
+                        <p style="margin-top:0.75rem; font-size:0.95rem; color:#334155;">Invited Speakers: <strong>TBA</strong></p>
+                    </section>
+
+                    <!-- Research Questions -->
+                    <section id="questions" class="section">
+                        <h2 class="section-title">❓ Guiding Research Questions</h2>
                         <div class="research-questions">
-                            <div class="question-card">
-                                <strong>Domain Impact</strong><br>
-                                How does change in domain of data impact the overall generated contents and systems?
-                            </div>
-                            <div class="question-card">
-                                <strong>Knowledge Transfer</strong><br>
-                                How to efficiently transfer knowledge from high-resource to low-resource languages?
-                            </div>
-                            <div class="question-card">
-                                <strong>Multi-Modal Alignment</strong><br>
-                                How to align cross-modal data using appropriate alignment functions for better content analysis?
-                            </div>
-                            <div class="question-card">
-                                <strong>Optimal Data Utilization</strong><br>
-                                How to better utilize different languages' data optimally for content analysis?
-                            </div>
-                            <div class="question-card">
-                                <strong>Real-World Applications</strong><br>
-                                How to develop practical applications of multi-modal data in low-resource languages?
-                            </div>
-                            <div class="question-card">
-                                <strong>Foundation Models</strong><br>
-                                How to employ foundational models to effectively alleviate various challenges?
-                            </div>
+                            <div class="question-card"><strong>Domain Shift</strong><br>How do domain changes affect the generation and analysis of multimedia—especially in agentic LLM‑driven systems?</div>
+                            <div class="question-card"><strong>Cross‑Lingual Transfer</strong><br>How can knowledge be transferred from high‑ to low‑resource languages (adaptation, prompting, RAG)?</div>
+                            <div class="question-card"><strong>Cross‑Modal Alignment</strong><br>How do we improve alignment using statistical similarity and LLM‑based semantic reasoning?</div>
+                            <div class="question-card"><strong>Supervision‑Sparse</strong><br>How can agentic workflows best utilize multilingual data in sparse‑supervision settings?</div>
+                            <div class="question-card"><strong>Foundational Models</strong><br>When do LLMs/multimodal agents alleviate—or exacerbate—cross‑domain/cross‑lingual/cross‑modal challenges?</div>
+                            <div class="question-card"><strong>Accountability</strong><br>How do we ensure accountability, fairness, and explainability of LLM/agent systems in low‑resource multimedia contexts?</div>
                         </div>
+                    </section>
+
+                    <!-- Key Dates -->
+                    <section id="dates" class="section">
+                        <h2 class="section-title">📅 Key Dates <span class="badge">TBA</span></h2>
+                        <div class="dates-grid">
+                            <div class="date-item"><span class="date-text">First Call for Papers</span><span class="date-value">Sep 10, 2025</span></div>
+                            <div class="date-item"><span class="date-text">Paper Submission Due</span><span class="date-value">Sep 30, 2025</span></div>
+                            <div class="date-item"><span class="date-text">Notification</span><span class="date-value">Oct 20, 2025</span></div>
+                            <div class="date-item"><span class="date-text">Camera‑ready Due</span><span class="date-value">Nov 12, 2025</span></div>
+                            <div class="date-item"><span class="date-text">Workshop Date</span><span class="date-value">Dec 18-20, 2025</span></div>
+                        </div>
+
+                    </section>
+
+                    <!-- Program Committee -->
+                    <section id="pc" class="section">
+                        <h2 class="section-title">🧑‍⚖️ Program Committee</h2>
+                        <ul class="ul-clean" style="font-size:1.02rem; line-height:1.85;">
+                            <li>Bhuvana J, SSN College of Engineering, Chennai</li>
+                            <li>Dhanalakshmi V, Subramania Bharathi School of Tamil Language &amp; Literature, Pondicherry University, India</li>
+                            <li>Dhivya Chinnappa, JP Morgan Chase &amp; Co., Texas</li>
+                            <li>Krishna Madgula, Zopsmart Technologies</li>
+                            <li>Onkar Krishna, Hitachi Ltd., Japan</li>
+                            <li>Ramesh Kannan R, Vellore Institute of Technology, Chennai</li>
+                            <li>Saima Mohan, Hitachi India R&amp;D</li>
+                            <li>Sathyaraj T, Sri Krishna Adithya College of Arts and Science, Coimbatore</li>
+                            <li>Sharath Kumar, Hitachi India R&amp;D</li>
+                            <li>Soubraylu Sivakumar, SRM Institute of Science and Technology, Chennai</li>
+                            <li>Yuta Koreeda, Hitachi Ltd., Japan</li>
+                        </ul>
+                    </section>
+
+                    <!-- References (optional for CFP page) -->
+                    <section id="refs" class="section">
+                        <h2 class="section-title">📚 Selected References</h2>
+                        <ol class="ul-clean" style="font-size:1.02rem; line-height:1.7; margin-left:1.25rem;">
+                            <li>Gkotsis et al. (2016). The language of mental health problems in social media. CLPsych@HLT‑NAACL.</li>
+                            <li>Engonopoulos et al. (2013). Language and cognitive load in a dual task environment. Cognitive Science, 35.</li>
+                            <li>Zampieri et al. (2019). Predicting the Type and Target of Offensive Posts in Social Media. NAACL.</li>
+                            <li>Chakravarthi et al. (2022). DravidianCodeMix: sentiment &amp; offensive language identification dataset for Dravidian code‑mixed text. LRE.</li>
+                            <li>Ravikiran et al. (2022). Findings of the Shared Task on Offensive Span Identification from Code‑Mixed Tamil‑English Comments. arXiv:2205.06118.</li>
+                        </ol>
                     </section>
                 </div>
 
                 <!-- Sidebar -->
                 <div class="sidebar">
-                    <!-- Important Dates -->
-                    <div class="sidebar-card">
-                        <h3 style="color: var(--primary); margin-bottom: 1.5rem; display: flex; align-items: center;">
-                            <span class="emoji-large">📅</span>Important Dates
-                        </h3>
-                        <div class="dates-grid" style="grid-template-columns: 1fr; gap: 0.75rem;">
-                            <div class="date-item">
-                                <span class="date-text">First Call for Papers</span>
-                                <span class="date-value">July 10, 2024</span>
-                            </div>
-                            <div class="date-item">
-                                <span class="date-text">Second Call for Papers</span>
-                                <span class="date-value">July 30, 2024</span>
-                            </div>
-                            <div class="date-item">
-                                <span class="date-text">Paper Submission Due</span>
-                                <span class="date-value">Aug 31, 2024</span>
-                            </div>
-                            <div class="date-item">
-                                <span class="date-text">Notification</span>
-                                <span class="date-value">Sep 25, 2024</span>
-                            </div>
-                            <div class="date-item">
-                                <span class="date-text">Camera-ready Due</span>
-                                <span class="date-value">Oct 15, 2024</span>
-                            </div>
-                            <div class="date-item">
-                                <span class="date-text">Workshop Dates</span>
-                                <span class="date-value">Dec 4-6, 2024</span>
-                            </div>
-                        </div>
-                    </div>
-
                     <!-- Organizers -->
                     <div class="sidebar-card" id="organizers">
-                        <h3 style="color: var(--primary); margin-bottom: 1.5rem; display: flex; align-items: center;">
-                            <span class="emoji-large">👥</span>Organizers
+                        <h3 style="color: var(--primary); margin-bottom: 1rem; display: flex; align-items: center;">
+                            <span style="font-size:1.25rem; margin-right:0.5rem;">👥</span>Organizers
                         </h3>
-                        <div class="organizers-grid" style="grid-template-columns: 1fr; gap: 1rem;">
+                        <div class="organizers-grid">
                             <div class="organizer-card">
                                 <div class="organizer-name">Ratnavel Rajalakshmi</div>
-                                <div class="organizer-affiliation">Vellore Institute of Technology, Chennai</div>
+                                <div class="organizer-affiliation">Vellore Institute of Technology (VIT), Chennai</div>
                             </div>
                             <div class="organizer-card">
                                 <div class="organizer-name">Manikandan Ravikiran</div>
-                                <div class="organizer-affiliation">R&D Center, Hitachi India Pvt Ltd</div>
+                                <div class="organizer-affiliation">ThoughtWorks (AI Research Scientist, Lead)</div>
                             </div>
                             <div class="organizer-card">
                                 <div class="organizer-name">Shibani Antonette</div>
-                                <div class="organizer-affiliation">University of Technology Sydney</div>
+                                <div class="organizer-affiliation">University of Technology Sydney (UTS)</div>
                             </div>
                         </div>
-                    </div>
-
-                    <!-- Twitter Section -->
-                    <div class="sidebar-card">
-                        <div class="twitter-section">
-                            <h3>Social Media</h3>
-                            <p style="margin: 0; color: #1976d2;">Follow <strong>#LC42024</strong> for the latest updates and discussions!</p>
+                        <div class="contact-section" id="contact">
+                            <h3>📧 Contact</h3>
+                            <div class="contact-item"><strong>General:</strong> <a href="mailto:lc4workshop@gmail.com">lc4workshop@gmail.com</a></div>
+                            <div class="contact-item"><strong>R. Rajalakshmi:</strong> <a href="mailto:ratnavelrajalakshmi@gmail.com">ratnavelrajalakshmi@gmail.com</a></div>
+                            <div class="contact-item"><strong>M. Ravikiran:</strong> <a href="mailto:manikandan.ravikiran@gmail.com">manikandan.ravikiran@gmail.com</a></div>
+                            <div class="contact-item"><strong>S. Antonette:</strong> <a href="mailto:antonette.shibani@gmail.com">antonette.shibani@gmail.com</a></div>
                         </div>
-                    </div>
-
-                    <!-- Contact Information -->
-                    <div class="sidebar-card" id="contact">
-                        <div class="contact-section">
-                            <h3>📧 Contact Us</h3>
-                            <div class="contact-item">
-                                <strong>Ratnavel Rajalakshmi:</strong><br>
-                                <a href="mailto:ratnavelrajalakshmi@gmail.com">ratnavelrajalakshmi@gmail.com</a>
-                            </div>
-                            <div class="contact-item">
-                                <strong>Manikandan Ravikiran:</strong><br>
-                                <a href="mailto:manikandan.ravikiran@gmail.com">manikandan.ravikiran@gmail.com</a>
-                            </div>
-                            <div class="contact-item">
-                                <strong>Shibani Antonette:</strong><br>
-                                <a href="mailto:antonette.shibani@gmail.com">antonette.shibani@gmail.com</a>
+                        <div style="margin-top:1rem; font-size:0.95rem; color:#334155;">
+                            Prior editions: SPELLL 2022, SPELLL 2023, SPELLL 2024.
+                        </div>
+                        <div class="sidebar-card" style="margin-top:1rem;">
+                            <div style="text-align:center;">
+                                <h3 style="color:#1976d2; margin-bottom:0.5rem;">Social Media</h3>
+                                <p style="margin:0;">Follow <strong>#LC42025</strong> for updates</p>
                             </div>
                         </div>
-                    </div>
-
-                    <!-- Acknowledgements -->
-                    <div class="sidebar-card">
-                        <h3 style="color: var(--text-secondary); margin-bottom: 1rem; font-size: 1rem;">🙏 Acknowledgements</h3>
-                        <p style="color: var(--text-muted); font-size: 0.9rem;">
-                            Original design inspiration by <a href="http://templated.co" target="_blank" style="color: var(--primary);">TEMPLATED</a>
-                        </p>
                     </div>
                 </div>
             </div>
@@ -754,10 +279,7 @@
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }
             });
         });
@@ -766,7 +288,6 @@
         window.addEventListener('scroll', () => {
             const sections = document.querySelectorAll('section[id]');
             const navLinks = document.querySelectorAll('.nav a[href^="#"]');
-            
             let current = 'home';
             sections.forEach(section => {
                 const sectionTop = section.offsetTop - 100;
@@ -775,21 +296,13 @@
                     current = section.getAttribute('id');
                 }
             });
-
             navLinks.forEach(link => {
                 link.classList.remove('active');
-                if (link.getAttribute('href') === `#${current}`) {
-                    link.classList.add('active');
-                }
+                if (link.getAttribute('href') === `#${current}`) link.classList.add('active');
             });
         });
 
-        // Add entrance animations on scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
+        // Card entrance animations
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -797,25 +310,13 @@
                     entry.target.style.transform = 'translateY(0)';
                 }
             });
-        }, observerOptions);
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
 
-        // Observe all cards for animation
         document.querySelectorAll('.question-card, .date-item, .organizer-card').forEach(card => {
             card.style.opacity = '0';
             card.style.transform = 'translateY(20px)';
             card.style.transition = 'all 0.6s ease';
             observer.observe(card);
-        });
-
-        // Enhanced hover effects
-        document.querySelectorAll('.question-card, .organizer-card, .sidebar-card').forEach(card => {
-            card.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-4px) scale(1.02)';
-            });
-            
-            card.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0) scale(1)';
-            });
         });
     </script>
 </body>
