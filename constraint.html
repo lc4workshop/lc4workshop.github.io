@@ -1,171 +1,336 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<!--
-Design by TEMPLATED
-http://templated.co
-Released for free under the Creative Commons Attribution License
-Name       : GrassyGreen 
-Description: A two-column, fixed-width design with dark color scheme.
-Version    : 1.0
-Released   : 20140310
--->
-<!-- main site from ACM to be added -->
-
-
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>CONSTRAINT2025</title>
-<meta name="keywords" content="" />
-<meta name="description" content="" />
-<link href="http://fonts.googleapis.com/css?family=Raleway:400,200,500,600,700,800,300" rel="stylesheet" />
-<link href="default.css" rel="stylesheet" type="text/css" media="all" />
-<link href="fonts.css" rel="stylesheet" type="text/css" media="all" />
-<!--[if IE 6]>
-<link href="default_ie6.css" rel="stylesheet" type="text/css" />
-<![endif]-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CONSTRAINT 2025 - IEEE BigData Workshop</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            padding: 1rem 0;
+        }
+
+        nav a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #764ba2;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.9), rgba(118, 75, 162, 0.9));
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            line-height: 1.3;
+        }
+
+        .hero h2 {
+            font-size: 1.5rem;
+            font-weight: 300;
+            opacity: 0.95;
+        }
+
+        .content-wrapper {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 50px rgba(0,0,0,0.15);
+            margin: -2rem auto 3rem;
+            max-width: 1100px;
+            overflow: hidden;
+        }
+
+        .content {
+            padding: 3rem;
+        }
+
+        .news-banner {
+            background: linear-gradient(135deg, #ffd89b 0%, #19547b 100%);
+            color: white;
+            padding: 1.5rem 3rem;
+            margin: -3rem -3rem 2rem;
+        }
+
+        .news-banner h2 {
+            margin-bottom: 0.5rem;
+        }
+
+        section {
+            margin-bottom: 3rem;
+        }
+
+        h2 {
+            color: #667eea;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            border-radius: 2px;
+        }
+
+        ul {
+            list-style: none;
+            margin-left: 1rem;
+        }
+
+        ul li {
+            padding: 0.75rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        ul li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+        }
+
+        .dates li {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 1rem 1.5rem;
+            margin-bottom: 0.75rem;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .dates li::before {
+            content: '📅';
+        }
+
+        .dates li:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        .organizers li {
+            background: #f8f9fa;
+            padding: 1rem 1.5rem;
+            margin-bottom: 0.5rem;
+            border-radius: 8px;
+            transition: background 0.3s;
+        }
+
+        .organizers li::before {
+            content: '👤';
+        }
+
+        .organizers li:hover {
+            background: #e9ecef;
+        }
+
+        .organizers a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .organizers a:hover {
+            color: #764ba2;
+        }
+
+        .contact-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            margin-top: 2rem;
+        }
+
+        .contact-box h2 {
+            color: white;
+        }
+
+        .contact-box h2::after {
+            background: white;
+        }
+
+        .contact-box p {
+            margin: 0.5rem 0;
+            font-size: 1.1rem;
+        }
+
+        .contact-box b {
+            display: inline-block;
+            min-width: 180px;
+        }
+
+        .scope-list li {
+            background: linear-gradient(135deg, #fff 0%, #f8f9fa 100%);
+            border-left: 3px solid #764ba2;
+            margin-bottom: 0.5rem;
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+
+        .scope-list li:hover {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            transform: translateX(5px);
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .hero h2 {
+                font-size: 1.2rem;
+            }
+
+            .content {
+                padding: 2rem 1.5rem;
+            }
+
+            .news-banner {
+                padding: 1.5rem;
+                margin: -2rem -1.5rem 2rem;
+            }
+        }
+    </style>
 </head>
 <body>
-<div id="wrapper">
-	<div id="menu-wrapper">
-		<div id="menu" class="container">
-			<ul>
-				<li class="current_page_item"><a href="https://lc4workshop.github.io/constraint.html">Home</a></li>
-<!-- 				<li><a href=constraint.html>CONSTRAINT 2023</a></li>
-				<li><a href=task.html>CALL FOR PAPERS</a></li>
-				<li><a href=submission.html>AUTHORS</a></li>
-				<li><a href=resources.html>PROGRAM</a></li>
-				<li><a href=dates.html>ORGANIZATION</a></li>
-				<li><a href=task.html>Shared Task</a></li>
-				<li><a href=example.html>Example</a></li>
-				<li><a href=evaluation.html>Evaluation</a></li>
-				 -->
-			</ul>
-		</div>
-		<!-- end #menu --> 
-	<div id="header-wrapper">
-		<div id="header" class="container">
-			<div id="logo">
-				<h1><a href="#">3rd Workshop on Handling Resource constraints for/using Big Data and AI at IEEE Bigdata 2025</a></h1>
-				<h3><a href="#">8-11 December, 2025 (Online)</a></h3>
-			</div>
-		</div>
-	</div>
-	</div>
-    
-	<div id="page" class="container">
-		<div id="content">
-            
-            
-            
-            <div class="title">
-                <h2>News</h2>
-                <span class="byline"></span>
+    <header>
+        <nav class="container">
+            <a href="https://lc4workshop.github.io/constraint.html">← Back to Home</a>
+        </nav>
+    </header>
+
+    <div class="hero">
+        <div class="container">
+            <h1>3rd Workshop on Handling Resource Constraints for/using Big Data and AI</h1>
+            <h2>IEEE BigData 2025 | December 8-11, 2025 (Online)</h2>
+        </div>
+    </div>
+
+    <div class="content-wrapper">
+        <div class="content">
+            <div class="news-banner">
+                <h2>📢 Latest News</h2>
+                <p>May 29, 2025: CONSTRAINT 2025 accepted at IEEE BigData 2025 and website is now online!</p>
             </div>
-            
-            <p>
-           <ul class="style2">
+
+            <section>
+                <h2>Overview</h2>
+                <p>The development of AI/BigData technology has increased human efficiency, accessibility, and safety. However, these technologies are often constrained by limitations in computing power, energy, data, and security risks, leading to a lack of equitable distribution of technology that is essential for promoting innovation and improving lives.</p>
                 
-		<li> 29 May 2025: Constraint 2025 Accepted at IEEE Bigdata 2025 and website online.</li>
-                </p>
-            
-            
-			<div class="title">
-				<h2>Overview</h2>
-				<span class="byline"></span> 
-			</div>
+                <p style="margin-top: 1rem;">As such, "advancing technology for humanity as a whole" requires addressing these resource constraints using a multi-disciplinary approach that involves advances in computing, energy, connectivity, data engineering, and environmental sustainability.</p>
 
-			<p>
-The development of AI/Bigdata technology has increased human efficiency, accessibility, and safety. However, these AI/Bigdata technologies are often constrained by limitations in computing power, energy, data, and security risks in turn leading to a lack of equitable distribution of technology that is essential for promoting innovation and improving the lives of people. As such “advancing technology for humanity as a whole” requires addressing these resource constraints using a multi-disciplinary approach that involves advances in computing, energy, connectivity, data engineering, and environmental sustainability. As AI and bigdata systems become more prevalent, it is important to develop strategies that enable these systems to operate efficiently [1-3] and sustainably in a wide range of environments and applications [4]. The proposed workshop session aims to provide a common ground to showcase recent advancements in developing Bigdata/AI systems under various constraints, build collaborations across disciplines, share benchmarks, algorithms, and methods for resource-constrained AI systems, and inspire research in domains where AI is used to address those research constraints
+                <p style="margin-top: 1rem; margin-bottom: 1.5rem;"><strong>The broader objectives of CONSTRAINT-2025 are:</strong></p>
+                
+                <ul>
+                    <li>To investigate challenges and resource constraints that prevent development and access to BigData and AI Applications</li>
+                    <li>To promote research in developing equitable BigData systems and applications</li>
+                    <li>To provide opportunities for researchers from the "Developing AI and BigData Technology Under Resource Constraints" community worldwide to collaborate</li>
+                    <li>To foster the development of a broader multi-disciplinary framework to adopt AI systems in daily life</li>
+                </ul>
+            </section>
 
-The broader objective of CONSTRAINT-2025 will be. 
-<ul class="style2">
+            <section>
+                <h2>Call for Papers</h2>
+                <p style="margin-bottom: 1.5rem;">CONSTRAINT-2025 welcomes submissions on various topics contributing to developing BigData and AI systems under resource constraints. We particularly encourage studies that address practical applications or improve upon resource constraints for AI/BigData systems including, but not limited to:</p>
+                
+                <ul class="scope-list">
+                    <li>Creating new resources such as data, hardware, and protocols for AI/BigData systems</li>
+                    <li>Optimizing data science systems, embedded platforms, and test beds</li>
+                    <li>Data privacy, hardware privacy, and new AI/BigData system designs</li>
+                    <li>Algorithms for urban computing and BigData analytics under resource constraints</li>
+                    <li>Energy-efficient computing and inferencing for AI/BigData systems</li>
+                    <li>Optimized VLSI and architecture design for AI/BigData applications</li>
+                    <li>Algorithms for increasing database efficiency using Machine Learning</li>
+                    <li>Scaling and optimizing Large Language Models (LLMs) under resource-constrained settings</li>
+                    <li>Optimizing ML algorithms for environmental sustainability and Green Machine Learning</li>
+                    <li>Cheaper surrogate AI and BigData systems, algorithms and applications</li>
+                    <li>Tools and methods for "green AI systems" hardware-software design and evaluation</li>
+                    <li>Frameworks to improve equity of AI/BigData systems under data and infrastructure constraints</li>
+                    <li>AI and BigData algorithms for resource-constrained applications in developing regions</li>
+                    <li>Empirical studies in healthcare, supply chain, smart cities, manufacturing, energy, finance, retail, and more</li>
+                    <li>Applications of AI and ML under resource constraints</li>
+                </ul>
+            </section>
 
+            <section>
+                <h2>Important Dates</h2>
+                <ul class="dates">
+                    <li><strong>May 25, 2025:</strong> First Call for Papers</li>
+                    <li><strong>June 25, 2025:</strong> Second Call for Papers</li>
+                    <li><strong>October 24, 2025:</strong> Workshop Paper Due Date</li>
+                    <li><strong>November 10, 2025:</strong> Notification of Acceptance</li>
+                    <li><strong>November 17, 2025:</strong> Camera-ready Papers Due</li>
+                    <li><strong>December 15-18, 2025 (Online/Pre-Recorded)</strong> Workshop Dates</li>
+                </ul>
+            </section>
 
-<li>To investigate challenges and resource constraints that prevent development and access to Bigdata and AI Applications. </li>
-<li>	To promote research in developing equitable Bigdata systems and applications.  </li>
-<li>To provide opportunities for researchers from the area of the “Developing AI and Bigdata Technology Under Resource Constraints” community from around the world to collaborate with other researchers.</li>
-<li>	To foster the development of a broader multi-disciplinary framework to adopt AI systems in daily life.  </li>
+            <section>
+                <h2>Organizers</h2>
+                <ul class="organizers">
+                    <li><a href="https://manikandan-ravikiran.github.io/" target="_blank">Manikandan Ravikiran</a>, Thoughtworks AI Research Lab/Indian Institute of Technology, Mandi</li>
+                    <li>Karrtik Iyer, Thoughtworks AI Research Lab</li>
+                    <li>Ankit Sharma, R&D Center, Hitachi India Pvt Ltd/Indian Institute of Technology, Roorkee</li>
+                    <li><a href="https://scholar.google.co.in/citations?user=mnC8haoAAAAJ&hl=en" target="_blank">Arnav Bhavsar</a>, Indian Institute of Technology, Mandi</li>
+                    <li><a href="https://scholar.google.com/citations?user=2VhkkksAAAAJ&hl=en" target="_blank">Rohit Saluja</a>, Indian Institute of Technology, Mandi</li>
+                    <li><a href="https://scholar.google.com/citations?user=ALuKL5oAAAAJ" target="_blank">Satyanarayanan N. Aakur</a>, Auburn University</li>
+                </ul>
+            </section>
 
-</p>
-
-			<p>
-				<div class="title">
-				<h2>Submission</h2>
-				<span class="byline"></span> 
-			</div>
-			
-CONSTRAINT-2025 welcomes submissions on various scopes to contribute in developing bigdata and AI systems under a variety of resource constraints and to address resource constraints. 
-We will particularly encourage studies that address either practical applications or improve upon resource constraints for a variety of AI/Bigdata systems in the field but now limited to
-		
-<li> Creating new resources such as data, hardware, and protocols for AI/Bigdata systems, Algorithms and Applications</li>
-<li> Optimizing data science systems, embedded platforms, and test beds for AI/Bigdata systems, Algorithms and Applications</li>
-<li> Data privacy, hardware privacy, and new AI/Bigdata system and Algorithms design</li>
-<li> Algorithms for Urban computing and bigdata analytics under resource constraints.</li>
-<li> Energy-efficient computing and inferencing for AI/bigdata systems, Algorithms and Applications</li>
-<li> Optimized VLSI and architecture design for AI/bigdata and data science applications </li>
-<li> Algorithms and systems for increasing database efficiency using Machine Learning</li>
-<li> Scaling and optimizing Large Language Models (LLMs) under resource-constrained settings, including low-resource languages, small models, edge deployment, fairness evaluations and memory- or energyefficient serving. </li>
-<li> Optimizing Machine Learning Algorithms for environmental sustainability and Green Machine Learning.</li>
-<li> Cheaper surrogate AI and Bigdata systems, Algorithms and Applications</li>
-<li> Tools and methods for “green AI systems” hardware-software system design and evaluation  </li>
-<li> Frameworks and methods to improve equity of AI/Bigdata systems especially under constraint of data and infrastructure. </li>
-<li> AI and Bigdata Algorithms catering to applications in resource constraint third world applications.</li>
-<li> Empirical study of resource constraints in areas of healthcare, supply chain, enterprise mobility solution, mobile systems, 
-	edge computing, education, smart campus, smart city and buildings, manufacturing, energy, demand forecasting, finance, retail, social computation, crowd sensing, wireless communication and networking, smart mobility, cyber security, environmental policy, climate change, and control, internet of personalized things, etc.</li>
-<li> Applications of AI and ML under resource constraints.
-			</br>
-			</br>
-<!-- 	Please submit your papers through <b> <a href="https://wi-lab.com/cyberchair/2025/bigdata24/scripts/submit.php?subarea=S40&undisplay_detail=1&wh=/cyberchair/2025/bigdata24/scripts/ws_submit.php">wi-lab</a></b> -->
-			
-	</br>
-			</br></br>
-			</br>
-
-			<div class="title">
-				<h2>Important Dates</h2>
-				<span class="byline"></span> 
-			</div>
-				<li>May 25, 2025: First Call for Papers </li>
-				<li>June 25, 2025: Second Call for Papers </li>
-				<li>Oct 24, 2025: Workshop Paper Due Date </li>
-				<li>Nov 10, 2025: Notification of Acceptance</li>
-				<li>Nov 23, 2025: Camera-ready papers due </li>
-				<li>December 15-18, 2025: Workshop Dates</li>
-			
-	
-	</br>
-			</br></br>
-			</br>
-		
-				<div class="title">
-				<h2>Organizers </h2>
-				<span class="byline"></span>
-					</div>
-						<li><a href="https://manikandan-ravikiran.github.io/">Manikandan Ravikiran</a>, Thoughtworks AI Research Lab/Indian Institute of Technology, Mandi</li>
-						<li><a href="">Karrtik Iyer</a>, Thoughtworks AI Research Lab</li>
-						<li><a href="">Ankit Sharma</a>, R&D Center, Hitachi India Pvt Ltd/ Indian Institute of Technology, Roorkee</li>
-						<li><a href="https://scholar.google.co.in/citations?user=mnC8haoAAAAJ&hl=en">Arnav Bhavsar</a>, Indian Institute of Technology, Mandi</li>
-						<li><a href="https://scholar.google.com/citations?user=2VhkkksAAAAJ&hl=en">Rohit Saluja</a>, Indian Institute of Technology, Mandi</li>
-						<li><a href="https://scholar.google.com/citations?user=ALuKL5oAAAAJ">Satyanarayanan N. Aakur</a> Auburn University</li>
-						
-	</br>
-			</br></br>
-			</br>
-
-				<div class="title">
-				<h2>Contact Us</h2>
-				<span class="byline"></span> 
-				</div>
-				<b>Manikandan Ravikiran</b>: manikandan.r@thoughtworks.com<br>
-				<b>Karrtik Iyer</b>: karrtik@thoughtworks.com<br>
-				<b>Ankit Sharma</b>: ankit.sharma@hitachi.co.in <br>
-			</p>
-
-	</div>
-		
-	</div>
-</div>
-	
-
+            <div class="contact-box">
+                <h2>Contact Us</h2>
+                <p><b>Manikandan Ravikiran:</b> manikandan.r@thoughtworks.com</p>
+                <p><b>Ankit Sharma:</b> ankit.sharma@hitachi.co.in</p>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
