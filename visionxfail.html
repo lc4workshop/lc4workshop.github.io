@@ -62,8 +62,15 @@
         .dates-grid { display: grid; grid-template-columns: 1fr; gap: 0.75rem; margin-top: 1rem; }
         .date-item { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 1rem; display: flex; justify-content: space-between; align-items: center; position: relative; overflow: hidden; }
         .date-item::before { content: ''; position: absolute; left: 0; top: 0; width: 4px; height: 100%; background: var(--gradient-primary); }
-        .date-text { font-weight: 500; flex: 1; }
-        .date-value { font-weight: 600; color: var(--primary); font-family: 'JetBrains Mono', monospace; font-size: 0.9rem; }
+        .date-text { font-weight: 500; flex: 1; padding-left: 0.75rem; }
+        .date-value { font-weight: 600; color: var(--primary); font-family: 'JetBrains Mono', monospace; font-size: 0.9rem; padding-left: 1rem; text-align: right; }
+        .program-item { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 1.25rem; margin-bottom: 0.75rem; position: relative; overflow: hidden; transition: all 0.3s ease; }
+        .program-item:hover { transform: translateX(4px); box-shadow: var(--shadow-md); border-color: var(--primary); }
+        .program-item::before { content: ''; position: absolute; left: 0; top: 0; width: 4px; height: 100%; background: var(--gradient-primary); }
+        .program-time { font-weight: 700; color: var(--primary); font-family: 'JetBrains Mono', monospace; font-size: 1rem; margin-bottom: 0.5rem; padding-left: 0.75rem; }
+        .program-title { font-weight: 600; color: var(--text-primary); font-size: 1.05rem; margin-bottom: 0.35rem; padding-left: 0.75rem; }
+        .program-speaker { color: var(--text-secondary); font-size: 0.95rem; padding-left: 0.75rem; }
+        .program-badge { display: inline-block; background: rgba(14,165,233,0.1); color: var(--primary); padding: 0.25rem 0.75rem; border-radius: 6px; font-size: 0.85rem; font-weight: 500; margin-left: 0.5rem; }
         .organizers-grid { display: grid; grid-template-columns: 1fr; gap: 1rem; margin-top: 1rem; }
         .organizer-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 1.25rem; text-align: center; transition: all 0.3s ease; position: relative; overflow: hidden; }
         .organizer-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: var(--gradient-primary); }
@@ -77,6 +84,8 @@
             .hero { padding: 80px 0 60px; } .content-grid { grid-template-columns: 1fr; gap: 2rem; }
             .sidebar { order: -1; } .main-column { padding: 2rem; } .nav ul { gap: 1rem; justify-content: center; }
             .nav a { padding: 0.5rem 1rem; font-size: 0.9rem; }
+            .date-item { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
+            .date-value { padding-left: 0.75rem; text-align: left; }
         }
         html { scroll-behavior: smooth; }
         ::-webkit-scrollbar { width: 8px; } ::-webkit-scrollbar-track { background: var(--bg-light); }
@@ -94,7 +103,7 @@
                     Workshop on <strong>Constraints</strong>, <strong>Challenges</strong>, and <strong>Negative Results</strong> in Computer Vision, Graphics, and Multimodal Analysis
                 </p>
                 <div class="date-location">
-                    📍 Co-located with ICVGIP • 🌐 In-person (remote presentations allowed) • 📣 Submissions Now Open 
+                    📅 December 17, 2025 (Wednesday) • 📍 Co-located with ICVGIP • 🌐 In-person + Remote Presentations
                 </div>
             </div>
         </div>
@@ -174,20 +183,66 @@
                             <li>Agentic workflows that failed due to latency, supervision gaps, or domain shifts.</li>
                             <li>Bias, fairness, and failure amplification in low‑resource vision settings.</li>
                         </ul>
-                        <p style="margin-top:0.5rem; font-size:0.95rem; color:#334155;">Invited Speakers: <strong>TBA</strong></p>
                     </section>
 
                     <!-- Program -->
                     <section id="schedule" class="section">
-                        <h2 class="section-title">🗓️ Tentative Program (Half‑day)</h2>
-                        <div class="dates-grid">
-                            <div class="date-item"><span class="date-text">09:00 – 09:30</span><span class="date-value">Opening remarks & workshop intro</span></div>
-                            <div class="date-item"><span class="date-text">09:30 – 10:30</span><span class="date-value">Keynote / Invited Talk 1</span></div>
-                            <div class="date-item"><span class="date-text">10:30 – 11:00</span><span class="date-value">Coffee / Networking Break</span></div>
-                            <div class="date-item"><span class="date-text">11:00 – 12:30</span><span class="date-value">Contributed papers (6–8 papers, 12 min each)</span></div>
-                            <div class="date-item"><span class="date-text">12:30 – 14:00</span><span class="date-value">Lunch Break</span></div>
+                        <h2 class="section-title">🗓️ Workshop Program</h2>
+                        <p style="margin-bottom:1.5rem; font-size:1.02rem; color:#334155;">
+                            <strong>Date:</strong> December 17, 2025 (Wednesday) • <strong>Duration:</strong> Afternoon Session (14:00 – 17:30)
+                        </p>
+                        
+                        <div class="program-item">
+                            <div class="program-time">14:00 – 14:40</div>
+                            <div class="program-title">Main Keynote<span class="program-badge">Keynote</span></div>
+                            <div class="program-speaker">Prof. Ganesh Ramakrishnan, IIT Bombay (Lead PI, BharatGen)</div>
                         </div>
-                        <p style="margin-top:0.75rem; font-size:0.95rem; color:#334155;">Mode: In‑person planned; remote talks allowed. If the main conference goes fully virtual, the workshop will be virtual‑only.</p>
+
+                        <div class="program-item">
+                            <div class="program-time">15:00 – 15:30</div>
+                            <div class="program-title">Industry Keynote<span class="program-badge">Keynote</span><span class="program-badge">Remote</span></div>
+                            <div class="program-speaker">Aditi Gautam, NVIDIA Applied AI Team, USA (Online/Pre-recorded)</div>
+                        </div>
+
+                        <div class="program-item">
+                            <div class="program-time">15:30 – 15:45</div>
+                            <div class="program-title">Challenges in AI<span class="program-badge">Industry Talk</span><span class="program-badge">Remote</span></div>
+                            <div class="program-speaker">Sid Vohra, Amazon AI, USA (Online/Pre-recorded)</div>
+                        </div>
+
+                        <div class="program-item">
+                            <div class="program-time">15:45 – 16:00</div>
+                            <div class="program-title">SuperWeight Normalization for Multimodal Reasoning<span class="program-badge">Paper (Oral)</span></div>
+                            <div class="program-speaker">Paper Presentation</div>
+                        </div>
+
+                        <div class="program-item">
+                            <div class="program-time">16:00 – 16:15</div>
+                            <div class="program-title">Towards Scene Text Recognition in Rainy Weather Conditions<span class="program-badge">Talk</span></div>
+                            <div class="program-speaker">Anandita, IIT Mandi</div>
+                        </div>
+
+                        <div class="program-item">
+                            <div class="program-time">16:15 – 16:30</div>
+                            <div class="program-title">Multi-Feature Graph Convolution Network for Hindi OCR Verification<span class="program-badge">Talk</span></div>
+                            <div class="program-speaker">Saurava and Shikhar, IIT Mandi</div>
+                        </div>
+
+                        <div class="program-item">
+                            <div class="program-time">16:30 – 17:00</div>
+                            <div class="program-title">Challenges in Computer Vision<span class="program-badge">Talk</span></div>
+                            <div class="program-speaker">Saurabh Shigwan, Shiv Nadar University, India</div>
+                        </div>
+
+                        <div class="program-item">
+                            <div class="program-time">17:00 – 17:30</div>
+                            <div class="program-title">Computer Vision and Applications<span class="program-badge">Talk</span></div>
+                            <div class="program-speaker">Session on CV Applications</div>
+                        </div>
+
+                        <p style="margin-top:1rem; font-size:0.95rem; color:#334155;">
+                            <strong>Mode:</strong> In‑person planned; remote talks allowed. If the main conference goes fully virtual, the workshop will be virtual‑only.
+                        </p>
                     </section>
 
                     <!-- Submission & Review -->
@@ -294,7 +349,7 @@
             });
         }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
 
-        document.querySelectorAll('.question-card, .date-item, .organizer-card').forEach(card => {
+        document.querySelectorAll('.question-card, .program-item, .organizer-card').forEach(card => {
             card.style.opacity = '0';
             card.style.transform = 'translateY(20px)';
             card.style.transition = 'all 0.6s ease';
