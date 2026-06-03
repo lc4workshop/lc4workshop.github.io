@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CONSTRAINT 2025 - IEEE BigData Workshop</title>
+    <title>CONSTRAINT 2026 - IEEE BigData Workshop</title>
     <style>
         * {
             margin: 0;
@@ -181,6 +181,46 @@
             color: #764ba2;
         }
 
+        .pc-list li {
+            background: #f8f9fa;
+            padding: 0.75rem 1.5rem;
+            margin-bottom: 0.4rem;
+            border-radius: 8px;
+            transition: background 0.3s;
+        }
+
+        .pc-list li::before {
+            content: '🔬';
+        }
+
+        .pc-list li:hover {
+            background: #e9ecef;
+        }
+
+        .keynote-box {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e8ecf5 100%);
+            border-left: 4px solid #764ba2;
+            padding: 1.25rem 1.5rem;
+            border-radius: 10px;
+            margin-top: 1rem;
+        }
+
+        .keynote-box p {
+            font-size: 1.05rem;
+        }
+
+        .keynote-box .confirmed-badge {
+            display: inline-block;
+            background: #28a745;
+            color: white;
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 0.2rem 0.6rem;
+            border-radius: 20px;
+            margin-left: 0.5rem;
+            vertical-align: middle;
+        }
+
         .contact-box {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
@@ -221,6 +261,36 @@
             transform: translateX(5px);
         }
 
+        .objectives-list li {
+            background: linear-gradient(135deg, #fff 0%, #f8f9fa 100%);
+            border-left: 3px solid #667eea;
+            margin-bottom: 0.5rem;
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+
+        .objectives-list li:hover {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            transform: translateX(5px);
+        }
+
+        .meta-info {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: 1.5rem;
+        }
+
+        .meta-badge {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 0.5rem 1.2rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
         @media (max-width: 768px) {
             .hero h1 {
                 font-size: 1.8rem;
@@ -250,8 +320,8 @@
 
     <div class="hero">
         <div class="container">
-            <h1>3rd Workshop on Handling Resource Constraints for/using Big Data and AI</h1>
-            <h2>IEEE BigData 2025 | December 8-11, 2025 (Online)</h2>
+            <h1>4th Workshop on Handling Resource Constraints for/using Big Data and AI</h1>
+            <h2>IEEE BigData 2026 | December 14–17, 2026 (Online)</h2>
         </div>
     </div>
 
@@ -259,69 +329,158 @@
         <div class="content">
             <div class="news-banner">
                 <h2>📢 Latest News</h2>
-                <p>May 29, 2025: CONSTRAINT 2025 accepted at IEEE BigData 2025 and website is now online!</p>
+                <p>CONSTRAINT 2026 proposal submitted to IEEE BigData 2026. Website coming soon!</p>
             </div>
 
             <section>
                 <h2>Overview</h2>
-                <p>The development of AI/BigData technology has increased human efficiency, accessibility, and safety. However, these technologies are often constrained by limitations in computing power, energy, data, and security risks, leading to a lack of equitable distribution of technology that is essential for promoting innovation and improving lives.</p>
-                
-                <p style="margin-top: 1rem;">As such, "advancing technology for humanity as a whole" requires addressing these resource constraints using a multi-disciplinary approach that involves advances in computing, energy, connectivity, data engineering, and environmental sustainability.</p>
+                <p>The rapid evolution of Artificial Intelligence (AI) and Big Data technologies has significantly enhanced human productivity, accessibility, and decision-making across domains. However, this progress is accompanied by growing disparities due to limitations in computational resources, energy consumption, data availability, infrastructure, and security risks. These constraints increasingly impact the equitable deployment and accessibility of AI systems, particularly in low-resource and emerging environments.</p>
 
-                <p style="margin-top: 1rem; margin-bottom: 1.5rem;"><strong>The broader objectives of CONSTRAINT-2025 are:</strong></p>
-                
-                <ul>
-                    <li>To investigate challenges and resource constraints that prevent development and access to BigData and AI Applications</li>
-                    <li>To promote research in developing equitable BigData systems and applications</li>
-                    <li>To provide opportunities for researchers from the "Developing AI and BigData Technology Under Resource Constraints" community worldwide to collaborate</li>
-                    <li>To foster the development of a broader multi-disciplinary framework to adopt AI systems in daily life</li>
+                <p style="margin-top: 1rem;">The rise of foundation models, large language models (LLMs), multimodal systems, and edge AI has further amplified the need to design systems that are not only powerful but also efficient, adaptive, and sustainable. The challenge is no longer just building intelligent systems, but ensuring that they can operate under constraints such as limited memory, bandwidth, compute, labeled data, and energy budgets, while maintaining fairness, reliability, and robustness.</p>
+
+                <p style="margin-top: 1rem;">Advancing "technology for humanity as a whole" requires a multi-disciplinary approach, integrating innovations in efficient computing architectures, green and energy-aware AI, data-centric AI and low-resource learning, edge and distributed agentic systems, privacy-preserving and secure AI, and sustainable infrastructure and environmental considerations.</p>
+
+                <div class="meta-info">
+                    <span class="meta-badge">🌐 Online (Virtual)</span>
+                    <span class="meta-badge">📄 Est. 15 Submissions</span>
+                    <span class="meta-badge">🗓 Dec 14–17, 2026</span>
+                </div>
+            </section>
+
+            <section>
+                <h2>Workshop Objectives</h2>
+                <p style="margin-bottom: 1.5rem;"><strong>The proposed CONSTRAINT-2026 workshop aims to:</strong></p>
+                <ul class="objectives-list">
+                    <li>Provide a platform for showcasing cutting-edge research in AI and Big Data under resource constraints</li>
+                    <li>Foster interdisciplinary collaboration across academia, industry, and policy domains</li>
+                    <li>Encourage development of benchmarks, datasets, algorithms, and systems tailored to constrained agentic environments</li>
+                    <li>Promote innovations that bridge the gap between state-of-the-art AI and real-world deployability, especially in underserved regions</li>
+                </ul>
+
+                <p style="margin-top: 1.5rem; margin-bottom: 1rem;"><strong>The broader objectives of CONSTRAINT-2026 are:</strong></p>
+                <ul class="objectives-list">
+                    <li>To investigate systemic, computational, and societal constraints that limit the development and deployment of AI/Big Data systems</li>
+                    <li>To promote equitable, inclusive, and accessible AI systems, especially for low-resource and multilingual settings</li>
+                    <li>To enable collaboration across communities working on efficient, sustainable, and constraint-aware AI systems</li>
+                    <li>To advance a multi-disciplinary framework for deploying AI systems responsibly in real-world environments</li>
+                    <li>To encourage research on efficient foundation models and next-generation AI systems under constraints</li>
                 </ul>
             </section>
 
             <section>
                 <h2>Call for Papers</h2>
-                <p style="margin-bottom: 1.5rem;">CONSTRAINT-2025 welcomes submissions on various topics contributing to developing BigData and AI systems under resource constraints. We particularly encourage studies that address practical applications or improve upon resource constraints for AI/BigData systems including, but not limited to:</p>
-                
+                <p style="margin-bottom: 1.5rem;">CONSTRAINT-2026 welcomes submissions on various topics contributing to developing Big Data and AI systems under resource constraints. We particularly encourage studies that address practical applications or improve upon resource constraints for AI/Big Data systems including, but not limited to:</p>
+
+                <p style="margin-bottom: 0.75rem; font-weight: 600; color: #764ba2;">Efficient Model Design & Scaling</p>
                 <ul class="scope-list">
-                    <li>Creating new resources such as data, hardware, and protocols for AI/BigData systems</li>
-                    <li>Optimizing data science systems, embedded platforms, and test beds</li>
-                    <li>Data privacy, hardware privacy, and new AI/BigData system designs</li>
-                    <li>Algorithms for urban computing and BigData analytics under resource constraints</li>
-                    <li>Energy-efficient computing and inferencing for AI/BigData systems</li>
-                    <li>Optimized VLSI and architecture design for AI/BigData applications</li>
-                    <li>Algorithms for increasing database efficiency using Machine Learning</li>
-                    <li>Scaling and optimizing Large Language Models (LLMs) under resource-constrained settings</li>
-                    <li>Optimizing ML algorithms for environmental sustainability and Green Machine Learning</li>
-                    <li>Cheaper surrogate AI and BigData systems, algorithms and applications</li>
-                    <li>Tools and methods for "green AI systems" hardware-software design and evaluation</li>
-                    <li>Frameworks to improve equity of AI/BigData systems under data and infrastructure constraints</li>
-                    <li>AI and BigData algorithms for resource-constrained applications in developing regions</li>
-                    <li>Empirical studies in healthcare, supply chain, smart cities, manufacturing, energy, finance, retail, and more</li>
-                    <li>Applications of AI and ML under resource constraints</li>
+                    <li>Scaling foundation models and LLMs under compute, memory, and latency constraints</li>
+                    <li>Model compression: pruning, quantization, distillation, token pruning, low-rank adaptation (LoRA)</li>
+                    <li>Sparse architectures, Mixture-of-Experts (MoE), adaptive computation</li>
+                    <li>Efficient training paradigms: few-shot, zero-shot, continual learning, test-time adaptation</li>
+                </ul>
+
+                <p style="margin-top: 1rem; margin-bottom: 0.75rem; font-weight: 600; color: #764ba2;">Edge & Distributed AI</p>
+                <ul class="scope-list">
+                    <li>AI deployment on edge devices, IoT systems, and mobile platforms</li>
+                    <li>Federated learning and decentralized training under communication constraints</li>
+                    <li>On-device inference, streaming AI, and real-time systems</li>
+                    <li>Resource-aware scheduling and orchestration</li>
+                </ul>
+
+                <p style="margin-top: 1rem; margin-bottom: 0.75rem; font-weight: 600; color: #764ba2;">Green & Sustainable AI</p>
+                <ul class="scope-list">
+                    <li>Energy-efficient training and inference strategies</li>
+                    <li>Carbon-aware AI systems and benchmarking</li>
+                    <li>Sustainable data centers and hardware-software co-design</li>
+                    <li>Lifecycle analysis of AI systems (training → deployment → recycling)</li>
+                </ul>
+
+                <p style="margin-top: 1rem; margin-bottom: 0.75rem; font-weight: 600; color: #764ba2;">Data-Centric & Low-Resource Learning</p>
+                <ul class="scope-list">
+                    <li>Learning under limited, noisy, or biased data</li>
+                    <li>Synthetic data generation and augmentation</li>
+                    <li>Active learning, semi-supervised and self-supervised learning</li>
+                    <li>AI for low-resource languages and domains</li>
+                </ul>
+
+                <p style="margin-top: 1rem; margin-bottom: 0.75rem; font-weight: 600; color: #764ba2;">Multimodal & Generative AI Under Constraints</p>
+                <ul class="scope-list">
+                    <li>Efficient multimodal models (vision-language, speech-language, sensor fusion)</li>
+                    <li>Retrieval-augmented generation (RAG) under resource limits</li>
+                    <li>Memory-efficient context handling and long-context modeling</li>
+                    <li>Lightweight reasoning and planning in large models</li>
+                </ul>
+
+                <p style="margin-top: 1rem; margin-bottom: 0.75rem; font-weight: 600; color: #764ba2;">Privacy, Fairness & Robustness</p>
+                <ul class="scope-list">
+                    <li>Privacy-preserving learning (differential privacy, secure computation)</li>
+                    <li>Robustness to adversarial and distributional shifts</li>
+                    <li>Fairness and bias mitigation under constrained settings</li>
+                    <li>Explainability and auditing in low-resource environments</li>
+                </ul>
+
+                <p style="margin-top: 1rem; margin-bottom: 0.75rem; font-weight: 600; color: #764ba2;">Hardware, Systems & Benchmarking</p>
+                <ul class="scope-list">
+                    <li>Specialized hardware (AI accelerators, neuromorphic computing)</li>
+                    <li>VLSI and architecture design for efficient AI workloads</li>
+                    <li>Compiler optimizations and runtime systems</li>
+                    <li>Storage and database optimization using AI</li>
+                    <li>Benchmarking efficiency, fairness, and sustainability</li>
+                    <li>New metrics for resource-aware performance evaluation</li>
+                    <li>Cost-performance trade-offs and Pareto optimization</li>
+                </ul>
+
+                <p style="margin-top: 1rem; margin-bottom: 0.75rem; font-weight: 600; color: #764ba2;">Real-World Applications & Emerging Topics</p>
+                <ul class="scope-list">
+                    <li>Real-world deployment case studies</li>
+                    <li>AI under regulatory, ethical, and governance constraints</li>
+                    <li>Human-AI collaboration under limited resources</li>
+                    <li>Continual, lifelong, and adaptive AI systems</li>
+                    <li>Neuro-symbolic and hybrid AI under constraints</li>
+                    <li>AI for scientific discovery with limited compute/data</li>
                 </ul>
             </section>
 
             <section>
                 <h2>Important Dates</h2>
                 <ul class="dates">
-                    <li><strong>May 25, 2025:</strong> First Call for Papers</li>
-                    <li><strong>June 25, 2025:</strong> Second Call for Papers</li>
-                    <li><strong>October 27, 2025:</strong> Workshop Paper Due Date</li>
-                    <li><strong>November 10, 2025:</strong> Notification of Acceptance</li>
-                    <li><strong>November 17, 2025:</strong> Camera-ready Papers Due</li>
-                    <li><strong>December 15-18, 2025 (Online/Pre-Recorded)</strong> Workshop Dates</li>
+                    <li><strong>October 1, 2026:</strong> Workshop Paper Submission Due Date</li>
+                    <li><strong>November 4, 2026:</strong> Notification of Acceptance</li>
+                    <li><strong>November 25, 2026:</strong> Camera-ready Papers Due</li>
+                    <li><strong>December 14–17, 2026 (Online)</strong> Workshop Dates</li>
                 </ul>
             </section>
 
             <section>
-                <h2>Organizers</h2>
+                <h2>Invited Keynote Speakers</h2>
+                <div class="keynote-box">
+                    <p>🎤 <strong>Aditi Gautam</strong>, Nvidia Research, USA <span class="confirmed-badge">✓ Confirmed</span></p>
+                </div>
+            </section>
+
+            <section>
+                <h2>Program Chairs</h2>
                 <ul class="organizers">
-                    <li><a href="https://manikandan-ravikiran.github.io/" target="_blank">Manikandan Ravikiran</a>, Thoughtworks AI Research Lab/Indian Institute of Technology, Mandi</li>
-                    <li>Karrtik Iyer, Thoughtworks AI Research Lab</li>
-                    <li>Ankit Sharma, R&D Center, Hitachi India Pvt Ltd/Indian Institute of Technology, Roorkee</li>
-                    <li><a href="https://scholar.google.co.in/citations?user=mnC8haoAAAAJ&hl=en" target="_blank">Arnav Bhavsar</a>, Indian Institute of Technology, Mandi</li>
-                    <li><a href="https://scholar.google.com/citations?user=2VhkkksAAAAJ&hl=en" target="_blank">Rohit Saluja</a>, Indian Institute of Technology, Mandi</li>
-                    <li><a href="https://scholar.google.com/citations?user=ALuKL5oAAAAJ" target="_blank">Satyanarayanan N. Aakur</a>, Auburn University</li>
+                    <li>Manikandan Ravikiran, Research Scientist, Thoughtworks AI Labs, India</li>
+                    <li>Ankit Sharma, Senior Researcher, Hitachi Ltd, Japan</li>
+                    <li>Rakesh Prakash, Architect, Boeing, USA</li>
+                    <li><a href="https://scholar.google.com/citations?user=ALuKL5oAAAAJ" target="_blank">Sathyanarayanan Aakur</a>, Associate Professor, Auburn University, USA</li>
+                    <li><a href="https://scholar.google.com/citations?user=2VhkkksAAAAJ&hl=en" target="_blank">Rohit Saluja</a>, Assistant Professor, IIT Mandi, India</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>Program Committee (Preliminary)</h2>
+                <ul class="pc-list">
+                    <li>Rajat Verma, IIT Mandi, India</li>
+                    <li>Manoj Balaji, Juniper Networks, India</li>
+                    <li>Sheetal Kumar, Hitachi Ltd</li>
+                    <li>Yuta Koreeda, Hitachi Ltd, Japan</li>
+                    <li>Sena Ekiz, Nvidia, USA</li>
+                    <li>Anna Muyan Li, University of Waterloo</li>
+                    <li>Tarun Sharma, IIT Mandi, India</li>
+                    <li>Radhika Grover, IIT Mandi, India</li>
+                    <li>Ankit Maurya, HCL Technologies</li>
                 </ul>
             </section>
 
