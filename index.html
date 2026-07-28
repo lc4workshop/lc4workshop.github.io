@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LC4 2026 – Fifth Workshop on Low Resource Cross‑Domain, Cross‑Lingual, and Cross‑Modal Content Analysis (Agentic Applications) Fifth workshop on Low Resource Cross Domain, Cross Lingual, Cross Modal Content Analysis (LC4) @ SPELLL 2026</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --primary: #6366f1; --primary-dark: #4f46e5; --secondary: #0f172a; --accent: #ec4899;
+            --accent-light: #fdf2f8; --text-primary: #0f172a; --text-secondary: #64748b; --text-muted: #94a3b8;
+            --bg-light: #f8fafc; --bg-card: #ffffff; --border: #e2e8f0; --border-light: #f1f5f9;
+            --success: #10b981; --warning: #f59e0b; --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --gradient-accent: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            --gradient-hero: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+        }
+        body { font-family: 'Inter', sans-serif; line-height: 1.6; color: var(--text-primary); background: #fff; overflow-x: hidden; }
+        .hero { background: var(--gradient-hero); padding: 120px 0 100px; position: relative; overflow: hidden; }
+        .hero::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="%23ffffff" stroke-width="1" opacity="0.1"/></pattern></defs><rect width="100%" height="100%" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+        }
+        .hero::after {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(circle at 20% 80%, rgba(120,119,198,0.3) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 20%, rgba(255,119,198,0.3) 0%, transparent 50%);
+        }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; position: relative; z-index: 1; }
+        .hero-content { text-align: center; color: white; position: relative; z-index: 2; }
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 800; margin-bottom: 1.5rem; line-height: 1.1;
+            background: linear-gradient(45deg, #ffffff, #e0e7ff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+        }
+        .hero .subtitle { font-size: clamp(1.1rem, 2.5vw, 1.5rem); font-weight: 400; margin-bottom: 1rem; opacity: 0.95; max-width: 900px; margin-left: auto; margin-right: auto; }
+        .hero .date-location {
+            font-size: 1.1rem; font-weight: 600; background: rgba(255,255,255,0.15); backdrop-filter: blur(20px);
+            padding: 16px 24px; border-radius: 50px; display: inline-block; margin-top: 1.25rem; border: 1px solid rgba(255,255,255,0.3); box-shadow: var(--shadow-lg);
+        }
+        .nav { position: sticky; top: 0; background: rgba(255,255,255,0.95); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); z-index: 1000; transition: all 0.3s ease; }
+        .nav-container { display: flex; justify-content: center; padding: 1rem 0; }
+        .nav ul { display: flex; list-style: none; gap: 2rem; margin: 0; padding: 0; flex-wrap: wrap; }
+        .nav a {
+            text-decoration: none; color: var(--text-primary); font-weight: 500; padding: 0.75rem 1.5rem; border-radius: 12px;
+            transition: all 0.3s ease; position: relative; background: var(--bg-light); border: 1px solid var(--border-light);
+        }
+        .nav a:hover { color: var(--primary); background: rgba(99,102,241,0.1); border-color: rgba(99,102,241,0.2); transform: translateY(-2px); box-shadow: var(--shadow-md); }
+        .nav a.active { color: white; background: var(--primary); border-color: var(--primary); box-shadow: var(--shadow-md); }
+        .main-content { padding: 80px 0; background: linear-gradient(135deg, var(--bg-light) 0%, #ffffff 100%); }
+        .content-grid { display: grid; grid-template-columns: 1fr 350px; gap: 4rem; }
+        .main-column { background: var(--bg-card); border-radius: 20px; padding: 3rem; box-shadow: var(--shadow-lg); border: 1px solid var(--border); position: relative; }
+        .sidebar { display: flex; flex-direction: column; gap: 2rem; }
+        .sidebar-card { background: var(--bg-card); border-radius: 16px; padding: 2rem; box-shadow: var(--shadow-md); border: 1px solid var(--border); transition: all 0.3s ease; }
+        .sidebar-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-xl); border-color: var(--primary); }
+        .section { margin-bottom: 4rem; }
+        .section:last-child { margin-bottom: 0; }
+        .section-title { font-size: 2.25rem; font-weight: 700; margin-bottom: 2rem; color: var(--text-primary); position: relative; padding-bottom: 1rem; }
+        .section-title::after { content: ''; position: absolute; bottom: 0; left: 0; width: 80px; height: 4px; background: var(--gradient-primary); border-radius: 2px; }
+        .news-section { background: linear-gradient(135deg, #e0f2fe 0%, #b3e5fc 100%); border: 1px solid #29b6f6; border-radius: 16px; padding: 1.5rem; margin-bottom: 2rem; position: relative; overflow: hidden; }
+        .research-questions { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1rem; margin-top: 1rem; }
+        .question-card { background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%); border: 1px solid #93c5fd; border-radius: 12px; padding: 1rem; transition: all 0.3s ease; position: relative; }
+        .question-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); border-color: var(--primary); }
+        .ul-clean { margin-left: 1.25rem; }
+        .badge { display: inline-block; padding: 0.25rem 0.75rem; background: var(--accent); color: white; border-radius: 20px; font-size: 0.8rem; font-weight: 500; margin-left: 0.5rem; }
+        .dates-grid { display: grid; grid-template-columns: 1fr; gap: 0.75rem; margin-top: 1rem; }
+        .date-item { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 1rem; display: flex; justify-content: space-between; align-items: center; position: relative; overflow: hidden; }
+        .date-item::before { content: ''; position: absolute; left: 0; top: 0; width: 4px; height: 100%; background: var(--gradient-primary); }
+        .date-text { font-weight: 500; flex: 1; }
+        .date-value { font-weight: 600; color: var(--primary); font-family: 'JetBrains Mono', monospace; font-size: 0.9rem; }
+        .organizers-grid { display: grid; grid-template-columns: 1fr; gap: 1rem; margin-top: 1rem; }
+        .organizer-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 1.25rem; text-align: center; transition: all 0.3s ease; position: relative; overflow: hidden; }
+        .organizer-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: var(--gradient-primary); }
+        .organizer-name { font-weight: 600; color: var(--primary); margin-bottom: 0.35rem; font-size: 1.05rem; }
+        .organizer-affiliation { color: var(--text-secondary); font-size: 0.9rem; line-height: 1.5; }
+        .contact-section { background: var(--gradient-primary); color: white; padding: 1.5rem; border-radius: 16px; margin-top: 1rem; }
+        .contact-item { margin-bottom: 0.5rem; padding: 0.5rem; background: rgba(255,255,255,0.1); border-radius: 8px; backdrop-filter: blur(10px); }
+        .contact-item a { color: white; text-decoration: none; font-weight: 500; transition: all 0.3s ease; }
+        .contact-item a:hover { text-decoration: underline; opacity: 0.9; }
+        @media (max-width: 768px) {
+            .hero { padding: 80px 0 60px; } .content-grid { grid-template-columns: 1fr; gap: 2rem; }
+            .sidebar { order: -1; } .main-column { padding: 2rem; } .nav ul { gap: 1rem; justify-content: center; }
+            .nav a { padding: 0.5rem 1rem; font-size: 0.9rem; } .research-questions { grid-template-columns: 1fr; }
+        }
+        html { scroll-behavior: smooth; }
+        ::-webkit-scrollbar { width: 8px; } ::-webkit-scrollbar-track { background: var(--bg-light); }
+        ::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 4px; } ::-webkit-scrollbar-thumb:hover { background: var(--primary-dark); }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>LC4 2026</h1>
+                <p class="subtitle">
+                    Fifth workshop on Low Resource Cross Domain, Cross Lingual, Cross Modal Content Analysis (LC4) @ SPELLL 2026<br>
+                    <span style="opacity:0.95;">Theme: <strong>Agentic Applications</strong></span>
+                </p>
+                <div class="date-location">
+                    📅 2026 (Dec 17-19) • 🏛️ Venue : Amrita Vishwa Vidyapeetham, Coimbatore, India • 🌐 In‑person (remote presentations allowed)
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="container">
+            <div class="nav-container">
+                <ul>
+                    <li><a href="#home" class="active">🏠 Home</a></li>
+                    <li><a href="#overview">📄 Overview</a></li>
+                    <li><a href="#topics">🧩 Topics of Interest</a></li>
+                    <li><a href="#dates">📅 Key Dates</a></li>
+                    <li><a href="#organizers">👥 Organizers</a></li>
+                    <li><a href="#pc">🧑‍⚖️ Program Committee</a></li>
+                    <li><a href="#contact">📧 Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <div class="content-grid">
+                <!-- Main Column -->
+                <div class="main-column">
+                    <!-- News Section -->
+                    <section class="section" id="home">
+                        <div class="news-section">
+                            <h2 style="color:#0f172a; margin-bottom:0.5rem; font-size:1.4rem;">📢 Announcement</h2>
+                            <p style="font-size:1.05rem;">
+                                The <strong>Fifth</strong> Workshop on Low Resource Cross-Domain, Cross-Lingual, and Cross-Modal Content Analysis (LC4) invites submissions addressing novel  techniques for detecting, classifying, and modeling multimedia content under cross-domain, cross-lingual, and cross-modal settings. With the proliferation of the internet and the advent of generative AI and Large Language Models (LLMs), the creation and spread of multimedia content across diverse platforms have intensified. This raises new challenges in agentic content monitoring, adaptive reasoning, and trust-aware decision-making, particularly in low-resource settings.
+                                Invited speakers and final dates will be announced soon. Official site: <a href="https://lc4workshop.github.io/lc4-spelll2026" target="_blank">lc4workshop.github.io/lc4-spelll2026</a>.
+                            </p>
+                            <p style="font-size:1.05rem;">
+                               Submission now open via <a href=" https://openreview.net/" target="_blank">OpenReview</a>.
+                            </p>
+                            <p style="margin-top:0.5rem; font-size:0.95rem; color:#334155;">Mode: In‑person workshop with remote presentation option for participants who cannot travel.</p>
+                        </div>
+                    </section>
+
+                    <!-- Overview -->
+                    <section id="overview" class="section">
+                        <h2 class="section-title">🎯 Overview</h2>
+                        <p style="font-size:1.05rem; line-height:1.8; margin-bottom:1rem;">
+                            LC4 invites work on novel computational methods to detect, classify, and model multimedia content across domains, languages, and modalities—
+                            with a special focus on <strong>Agentic AI & Autonomous Multimodal Intelligence
+</strong>, <strong>Low-Resource and Cross-Lingual Learning</strong>, and <strong>Human-Centered and Responsible AI</strong> in supervision‑sparse settings.
+                            We especially welcome contributions that leverage <strong>foundational models</strong> (LLMs and multimodal agents) for robust, interpretable, and socially impactful analysis in low‑resource contexts.
+                        </p>
+                    </section>
+
+                    <!-- Topics -->
+                    <section id="topics" class="section">
+
+    <h2 class="section-title">🧩 Topics of Interest</h2>
+
+    <h3 style="margin-top:1.5rem; color:#1e3a8a;">Agentic AI &amp; Autonomous Multimodal Intelligence</h3>
+    <ul class="ul-clean" style="font-size:1.02rem; line-height:1.85;">
+        <li>Agentic workflows for multilingual analysis</li>
+        <li>Large Language Models (LLMs)</li>
+        <li>Vision-Language Foundation Models (VLMs)</li>
+        <li>Speech Foundation Models</li>
+        <li>Retrieval-Augmented Generation (RAG)</li>
+        <li>Agentic AI for multimedia analysis</li>
+        <li>Multi-agent collaboration for content understanding</li>
+        <li>Parameter-efficient fine-tuning and prompting strategies</li>
+        <li>Multimodal document intelligence</li>
+        <li>OCR and document understanding for low-resource scripts</li>
+    </ul>
+
+    <h3 style="margin-top:1.8rem; color:#1e3a8a;">Low-Resource and Cross-Lingual Learning</h3>
+    <ul class="ul-clean" style="font-size:1.02rem; line-height:1.85;">
+        <li>Multilingual and low-resource language models</li>
+        <li>Transfer learning for underrepresented languages</li>
+        <li>Cross-lingual retrieval and semantic alignment</li>
+        <li>Multilingual summarization, question answering, and information extraction</li>
+        <li>Code-mixed misinformation detection</li>
+        <li>Cross-lingual knowledge transfer</li>
+        <li>Synthetic data generation</li>
+        <li>Indigenous and endangered language resources</li>
+    </ul>
+
+    <h3 style="margin-top:1.8rem; color:#1e3a8a;">Human-Centered and Responsible AI</h3>
+    <ul class="ul-clean" style="font-size:1.02rem; line-height:1.85;">
+        <li>Human–AI collaborative fact-checking</li>
+        <li>Annotation quality and consensus modeling</li>
+        <li>Bias and fairness in moderation systems</li>
+        <li>Privacy-preserving misinformation analysis</li>
+        <li>Transparent and interpretable AI systems</li>
+        <li>Ethical deployment in sensitive contexts</li>
+    </ul>
+
+    <p style="margin-top:1rem; font-size:0.95rem; color:#334155;">
+        Invited Speakers: <strong>TBA</strong>
+    </p>
+
+</section>
+
+
+                    <!-- Key Dates -->
+                    <section id="dates" class="section">
+                        <h2 class="section-title">📅 Key Dates <span class="badge">TBA</span></h2>
+                        <div class="dates-grid">
+                        
+                            <div class="date-item"><span class="date-text">Paper Submission Deadline</span><span class="date-value">Aug 17, 2026</span></div>
+                            <div class="date-item"><span class="date-text">Review Period</span><span class="date-value">Aug 18,2026 - Sep 14,2026</span></div>
+                            <div class="date-item"><span class="date-text">Decision Period</span><span class="date-value">Sep 15,2026 - Sep 18,2026</span></div>
+                            <div class="date-item"><span class="date-text">Acceptance Notification</span><span class="date-value">Sep 20, 2026</span></div>                           
+                            <div class="date-item"><span class="date-text">Camera-Ready Submission</span><span class="date-value">Oct 03, 2026</span></div>                            
+                            <div class="date-item"><span class="date-text">Workshop Date</span><span class="date-value">Dec 17-19, 2026</span></div>
+                        </div>
+
+                    </section>
+
+                    <!-- Program Committee -->
+                    <section id="pc" class="section">
+                        <h2 class="section-title">🧑‍⚖️ Program Committee</h2>
+                        <ul class="ul-clean" style="font-size:1.02rem; line-height:1.85;">
+                            <li>Bhuvana J, Shiv Nadar University, Chennai, India</li>
+                            <li>Dhanalakshmi V, Subramania Bharathi School of Tamil Language &amp; Literature, Pondicherry University, India</li>
+                            <li>Ramesh Kannan R, Vellore Institute of Technology, Chennai, India</li>
+                            <li>Dhivya Chinnappa, JP Morgan Chase &amp; Co., Texas, USA</li>
+                            <li>Onkar Krishna, Hitachi Ltd., Japan</li>
+                            <li>Sathyaraj T, Sri Krishna Adithya College of Arts and Science, Coimbatore, India</li>
+                            <li>Sharath Kumar, Hitachi India R&amp;D, India</li>
+                            <li>Soubraylu Sivakumar, SRM Institute of Science and Technology, Chennai, India</li>
+                            <li>Vaishali Ganganwar, Army Institute of Technology, Pune, India</li>
+                            <li>Yuta Koreeda, Hitachi Ltd., Japan</li>
+                        </ul>
+                    </section>
+                    <!-- References (optional for CFP page) -->
+                    <section id="refs" class="section">
+                        <h2 class="section-title">📚 Selected References</h2>
+                        <ol class="ul-clean" style="font-size:1.02rem; line-height:1.7; margin-left:1.25rem;">                  
+                           <li>  Sakshi Gupta, Shunmuga Priya Muthusamy Chinnan, Saranya Rajiakodi, Ratnavel Rajalakshmi, and Bharathi Raja Chakravarthi. 2026. GYAAN-SAHIT: A Persona-Driven Multi-Agent Framework for Caste-Based Hate Speech Detection. In Proceedings of the Sixth Workshop on Language Technology for Equality, Diversity, Inclusion, pages 76–90,  Association for Computational Linguistics.</li>
+
+<li> Rajalakshmi, R., Karmarkar, O.P., Mallik, B. (2026). Multilingual Content Moderation: Advanced Hate Speech Detection with XLM-RoBERTa. In: Bhateja, V., El Barachi, M., Azar, A.T., Sharma, D.K. (eds) Information System Design: Big Data Analytics and Data Science. ISDIA 2025. Lecture Notes in Networks and Systems, vol 1539. Springer, Singapore. https://doi.org/10.1007/978-981-96-9248-4_6 </li>
+
+<li> Premjith B, Jyothish Lal G, Bharathi Raja Chakravarthi, Saranya Rajiakodi, Thenmozhi Durairaj, Ratnavel Rajalakshmi, Rahul Ponnusamy, and Chinthala Bhuvanesh. 2026. Shared Task on Prompt Style Recovery for Large Language Models in Telugu. In Proceedings of the Sixth Workshop on Speech, Vision, and Language Technologies for Dravidian Languages, pages 124–133, Underline (Virtual). Association for Computational Linguistics.</li>
+
+<li> Shibani, A., Mattins, F., Selvaraj, S., Rajalakshmi, R., & Bharathy, G. (2024). Tamil Co-Writer: Towards Inclusive Use of Generative AI for Writing Support. In LAK Workshops (pp. 240-248).</li>
+
+<li> Manikandan Ravikiran, Ratnavel Rajalakshmi, Bharathi Raja Chakravarthi, Anand Kumar Madasamy, and Sajeetha Thavareesan. 2024. Findings of the First Shared Task on Offensive Span Identification from Code-Mixed Kannada-English Comments. In Proceedings of the Fourth Workshop on Speech, Vision, and Language Technologies for Dravidian Languages, pages 43–48, St. Julian's, Malta. Association for Computational Linguistics.</li>
+
+<li> Ravikiran, M., Chakravarthi, B., Madasamy, A.B., Sivanesan, S., Rajalakshmi, R., Thavareesan, S., Ponnusamy, R., & Mahadevan., S. (2022). Findings of the Shared Task on Offensive Span Identification fromCode-Mixed Tamil-English Comments. ArXiv, abs/2205.06118.</li>
+
+                        </ol>
+                    </section>
+                </div>
+
+                <!-- Sidebar -->
+                <div class="sidebar">
+                    <!-- Organizers -->
+                    <div class="sidebar-card" id="organizers">
+                        <h3 style="color: var(--primary); margin-bottom: 1rem; display: flex; align-items: center;">
+                            <span style="font-size:1.25rem; margin-right:0.5rem;">👥</span>Organizers
+                        </h3>
+                        <div class="organizers-grid">
+                            <div class="organizer-card">
+                                <div class="organizer-name">Ratnavel Rajalakshmi</div>
+                                <div class="organizer-affiliation">Vellore Institute of Technology (VIT), Chennai</div>
+                            </div>
+                            <div class="organizer-card">
+                                <div class="organizer-name">Manikandan Ravikiran</div>
+                                <div class="organizer-affiliation">ThoughtWorks (AI Research Scientist, Lead)</div>
+                            </div>
+                            <div class="organizer-card">
+                                <div class="organizer-name">Shibani Antonette</div>
+                                <div class="organizer-affiliation">University of Technology Sydney (UTS)</div>
+                            </div>
+                        </div>
+                        <div class="contact-section" id="contact">
+                            <h3>📧 Contact</h3>
+                            <div class="contact-item"><strong>General:</strong> <a href="mailto:lc4workshop@gmail.com">lc4workshop@gmail.com</a></div>
+                            <div class="contact-item"><strong>R. Rajalakshmi:</strong> <a href="mailto:ratnavelrajalakshmi@gmail.com">ratnavelrajalakshmi@gmail.com</a></div>
+                            <div class="contact-item"><strong>M. Ravikiran:</strong> <a href="mailto:manikandan.ravikiran@gmail.com">manikandan.ravikiran@gmail.com</a></div>
+                            <div class="contact-item"><strong>S. Antonette:</strong> <a href="mailto:antonette.shibani@gmail.com">antonette.shibani@gmail.com</a></div>
+                        </div>
+                            <div style="margin-top:1rem; font-size:0.95rem; color:#334155;">
+                            Prior editions:
+                            <a href="https://spelll.org/SPELLL2025/index.html" target="_blank">SPELLL 2025</a>,
+                            <a href="https://spelll.org/SPELLL2024/index.html" target="_blank">SPELLL 2024</a>,
+                            <a href="https://spelll.org/SPELLL2023/index.html" target="_blank">SPELLL 2023</a>,
+                            <a href="https://spelll.org/SPELLL2023/SPELLL2022/index.html" target="_blank">SPELLL 2022</a>.
+                        </div>
+                        <div class="sidebar-card" style="margin-top:1rem;">
+                            <div style="text-align:center;">
+                                <h3 style="color:#1976d2; margin-bottom:0.5rem;">Social Media</h3>
+                                <p style="margin:0;">Follow <strong>#LC42026</strong> for updates</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Active navigation highlighting
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.nav a[href^="#"]');
+            let current = 'home';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                const sectionHeight = section.clientHeight;
+                if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
+                    current = section.getAttribute('id');
+                }
+            });
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) link.classList.add('active');
+            });
+        });
+
+        // Card entrance animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+        document.querySelectorAll('.question-card, .date-item, .organizer-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'all 0.6s ease';
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
